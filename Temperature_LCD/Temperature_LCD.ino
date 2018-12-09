@@ -1,8 +1,6 @@
 //**5V in**
 
-/* I2C LCD 16x2 Arduino Tutorial
- * More info http://www.ardumotive.com/i2clcd(en).html
- * Dev: Michalis Vasilakis Date: 19/11/2016 Ver. 1.0 */
+//Coded by TanakitInt.
 
 //LCD----------------------------------------------------------------------------------
 //Libraries 
@@ -66,7 +64,7 @@ void loop() {}
 
 //PHOTO RESISTOR------------------------------------------------------------------------
   int sensorPin = A7;   // select the analog input pin for the photoresistor
-  int threshold = 600;  // analog input trigger level from photoresistor
+  int threshold = 500;  // analog input trigger level from photoresistor
   int sensorValue = 0;  // photoresistor value read from analog input pin
   int ledPin = 52;
 
