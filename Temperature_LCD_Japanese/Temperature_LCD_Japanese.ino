@@ -64,7 +64,7 @@ void loop() {}
 
 //PHOTO RESISTOR------------------------------------------------------------------------
   int sensorPin = A7;   // select the analog input pin for the photoresistor
-  int threshold = 600;  // analog input trigger level from photoresistor
+  int threshold = 400;  // analog input trigger level from photoresistor
   int sensorValue = 0;  // photoresistor value read from analog input pin
   int ledPin = 52;
 
@@ -100,7 +100,7 @@ void loop()
   //print the value
   Serial.print("Temp : "); 
   Serial.print(T);
-  Serial.println(" C  "); 
+  Serial.println(" C ,"); 
   
   //Setup LCD line
   
@@ -127,7 +127,8 @@ void loop()
   lcd.setCursor(0,1); //Second line
   
   Serial.print("Light: ");
-  Serial.println(analogRead(sensorPin));
+  Serial.print(analogRead(sensorPin));
+  Serial.println(" lux ,");
 
   //PLEASE SEE THE HD44780 lcd controller MANUAL AND CONVERT Binary to Decimal AT FIRST!!
   //(char)215 >> ra >> ラ
@@ -142,17 +143,17 @@ void loop()
   
   lcd.print(analogRead(sensorPin));
   
-  if (analogRead(sensorPin) > threshold) 
+  if (analogRead(sensorPin) < threshold) 
   {    
     digitalWrite(ledPin, HIGH);    
-    Serial.println(" ON!  ");
+    Serial.println("ON!  ");
 
     lcd.print(" ON!  ");
   }
   else 
   {    
     digitalWrite(ledPin, LOW);
-    Serial.println(" OFF  ");
+    Serial.println("OFF  ");
     
     lcd.print(" OFF  ");
   }
